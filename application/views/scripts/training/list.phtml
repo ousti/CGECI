@@ -1,0 +1,62 @@
+
+<h4 id='titleView'>  </h4>
+
+<?php if(isset($this->fm)) : ?>
+    <div class='alert alert-success'> <?php echo $this->fm; ?></div>
+<?php endif; ?>
+
+<?php //Zend_Debug::dump($this->events); ?>
+  
+<?php $k = 0; 
+      foreach ($this->formations as $item) : ?> 
+      <?php $f = $item->FieldsValue->FieldValues; ?>
+    <div class="block-content collapse in">
+        <table class="table table-striped list">
+            <tbody>
+                <tr>
+                    <td width='30%'>
+                        <strong>  <?php echo $f[1]->Value; ?> </strong>
+                        <br/>
+                        <?php echo $f[3]->Value; ?>
+                    </td>
+                     <td align="left">
+                        Date :
+                        <label class="label label-info">
+                            <?php echo $f[4]->Value; ?> - <?php echo $f[5]->Value; ?>  </label>
+                        </label>
+                     <br/>
+                        Heure : 
+                        <label class="label label-info">
+                            <?php echo $f[6]->Value; ?> 
+                        </label>
+                        <br/>
+                        Cout : <?php echo $f[7]->Value; ?> FCFA 
+                    </td>
+                    <td align="right">
+                        <?php 
+                              $compareDate = Utils::compareDate( date('Y-m-d'), $f[4]->Value);
+                              if($compareDate) {
+                                  $alreadySubscribe = in_array($f[0]->Value, $this->mySubscribes);
+                                  if(!$alreadySubscribe) {
+                        ?>
+                        <a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'subscribe', 'idf' => $f[0]->Value, 'l'=>$f[1]->Value), null, true); ?>" class="btn btn-warning btn-mini"> 
+                            <i class="icon icon-certificate icon-white"></i> m'inscrire
+                        </a>
+                            <?php } else { ?>
+                            <label class='label label-important'> inscription déja enregistrée</label>
+                            <?php }?>
+                        <?php } else { ?>
+                          <label class='label label-warning'> passé</label>
+                          <?php } ?>
+                    </td>
+                </tr>  
+                
+            </tbody>
+        </table>
+    </div>
+<?php $k++; ?>
+ <?php endforeach; ?>
+
+
+
+

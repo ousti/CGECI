@@ -1,0 +1,100 @@
+<div class="row-fluid">
+
+
+    <div class="span2">
+        
+    </div>
+    <div class="span8">
+
+
+        <div class="block">
+            
+            <?php if(isset($this->errMessage)) : ?>
+                <div class='alert alert-error'>
+                    <h3>Erreur de modification </h3>
+                    <?php echo($this->errMessage); ?>
+                </div>            
+            <?php endif; ?>
+            
+            <div class="block-content collapse in">
+                <div class="span12">
+                    <form class="form-horizontal" id="" action="<?php echo $this->url(array('controller' => 'myaccount', 'action' => 'update'), null, true); ?>" method="POST">
+                        <fieldset>
+                            <legend> CGECI :: Modification de données personnelles </legend>
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="">Société</label>
+                                <div class="controls">
+                                    <input type="text" name="PM01"  class="input-large" value="<?php echo $this->infoCompany->PM01; ?>" disabled="disabled" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">Adresse</label>
+                                <div class="controls">
+                                  <input type="text" name="PM02"  class="input-large"  value="<?php echo $this->infoCompany->PM02; ?>" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for=""> Pays</label>
+                                <div class="controls">
+                                  <input type="text" name="PM03"  class="input-large"  value="<?php echo $this->infoCompany->PM03; ?>" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">Localisation</label>
+                                <div class="controls">
+                                    <textarea name="PM04"  ><?php echo $this->infoCompany->PM04; ?></textarea>
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for=""> Téléphone 1 </label>
+                                <div class="controls">
+                                  <input type="text" name="PM05"  class="input-medium"  value="<?php echo $this->infoCompany->PM05; ?>" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+
+                           <div class="control-group">
+                                <label class="control-label" for="">Téléphone 2</label>
+                                <div class="controls">
+                                  <input name="PM06" id="pwd"  class="input-medium"  value="<?php echo $this->infoCompany->PM06; ?>" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">Ville</label>
+                                <div class="controls">
+                                  <input name="PM10"  class="input-medium"  value="<?php echo $this->infoCompany->PM10; ?>" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                                                                                                                                           
+                          <div class="form-actions">
+                                <input type="submit" class="btn btn-warning" value="effectuer modification" />
+                                <a href="<?php echo $this->url(array('controller' => 'myaccount', 'action' => 'index'), null, true); ?>" class="btn">annuler</a>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- /block -->
+
+    </div>
+    
+    <div class="span2">
+        
+    </div>
+
+
+</div>

@@ -1,0 +1,60 @@
+<div class="row-fluid">
+
+
+
+        <div class="span12">
+            
+            <div class="block-content in">
+                <h4> infos eudonet </h4>
+                <br/>
+                <?php if (isset($this->fm)) : ?>
+                    <div class='alert alert-success'>
+                        <h3>Action effectuée </h3>
+                        <?php echo $this->fm; ?>
+                    </div>            
+                <?php endif; ?>
+
+                
+                <div class="span12">
+                    <div class="span4">Société </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM01; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Adresse </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM02; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Pays </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM03; ?></strong></div>
+                </div> 
+                 <div class="span12">
+                    <div class="span4">Localisation </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM04; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Téléphone 1 </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM05; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Téléphone 2 </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM06; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Ville </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM10; ?></strong></div>
+                </div> 
+                <div class="span12 text-center">
+                    <a href="<?php echo $this->url(array('controller' => 'myaccount', 'action' => 'edit'), null, true); ?>" class="btn btn-primary"> mettre à jour</a>
+                </div> 
+            </div>
+            <?php // Zend_Debug::dump($this->infoCompany);  ?>
+        
+        </div>
+        <!-- /block -->
+
+</div>
+
+   
+
+
+

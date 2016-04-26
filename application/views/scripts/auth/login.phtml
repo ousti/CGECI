@@ -1,0 +1,36 @@
+<div class="container">
+
+      <form class="form-signin" method="POST">
+          <h4 class="form-signin-heading"> 
+              <div style="width:100%; height: 111px; text-align:center;">
+                  <img src="<?php echo $this->baseUrl(); ?>/images/cgeci.jpg" id="logo" /> 
+              </div>
+              <br/> Application CGECI
+              <span style="color:#666; font-size:14px;">
+                  &rsaquo; authentification membre</span>
+          </h4>
+          
+          <?php if(isset($this->errorMessage)) { ?> 
+            <div class="alert alert-error"> 
+                <?php echo $this->errorMessage; ?>
+            </div>
+          <?php } ?>
+          
+          <?php if(isset($this->fm)) { ?> 
+            <div class="alert alert-heading"> 
+                <?php echo $this->fm; ?>
+            </div>
+          <?php } ?>
+        <input type="text" class="input-block-level" placeholder="compte" name="login">
+        <input type="password" class="input-block-level" placeholder="mot de passe" name="pwd">
+        <!-- <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label> -->
+        <button class="btn btn-primary" id="loginBtn" type="submit">connexion</button>
+        <div>
+            <a href="<?php echo $this->url(array('controller' => 'account', 'action' => 'create'), null, true); ?>" class="link"> ouvrir un compte </a> | 
+            <a href="<?php echo $this->url(array('controller' => 'account', 'action' => 'forgotpwd'), null, true); ?>" class="link"> mot de passe oublié ?</a>
+        </div>
+      </form>
+
+    </div> <!-- /container -->

@@ -1,0 +1,48 @@
+<div id="navBar">
+  
+    <ul class="nav nav-tabs navbar">
+        
+        <li <?php if(($this->controller=='myaccount' and $this->action=='index')) echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('controller' => 'myaccount', 'action' => 'index'), null, true); ?>">
+              <i class="icon icon-home"></i> mon compte </a>
+        </li>
+        
+         
+         <li <?php if($this->controller == 'training') echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'list'), null, true); ?>">
+            <i class="icon icon-cog"></i> formations disponibles </a>
+        </li>
+         <li <?php if($this->controller == 'event') echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('controller' => 'event', 'action' => 'list'), null, true); ?>">
+            <i class="icon icon-eye-open"></i> evènements </a>
+        </li>
+         
+         <li <?php if($this->controller == 'training-room') echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('controller' => 'training-room', 'action' => 'list'), null, true); ?>">
+            <i class="icon icon-star"></i> salles de formation </a>
+        </li>
+         
+        <li>
+            <a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout'), null, true); ?>">
+              <i class="icon icon-lock"></i> me déconnecter </a>
+        </li>
+        
+       
+         <!--
+        <li <?php if(($this->controller=='reservation' and $this->action=='new') ) echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('controller' => 'reservation', 'action' => 'new'), null, true); ?>">
+              <i class="icon icon-plus-sign"></i> nouvelle réservation </a>
+        </li> 
+        
+        <li <?php if(($this->controller=='dashboard' and $this->action=='index') ) echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('controller' => 'dashboard', 'action' => 'index'), null, true); ?>">
+              <i class="icon icon-circle-arrow-down"></i> historique client </a>
+        </li>
+        
+        
+        
+         
+        -->
+    </ul>        
+
+</div>

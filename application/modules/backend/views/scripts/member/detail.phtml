@@ -1,0 +1,170 @@
+
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header well" data-original-title>
+            <h2><i class="icon-user"></i> <?php echo $this->member['nom'].' '.$this->member['prenoms'];?> </h2>
+            <div class="box-icon">
+                <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+            </div>
+        </div>
+        <div class="box-content pull-right">
+            <?php if($this->member['validation_backoffice_status'] == -1) : ?>
+            <a class="btn btn-warning" href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'subscriber', 'action' => 'validate', 'id'=>$this->member['id']), null, true); ?>">
+               <i class="icon-warning-sign icon-white"></i>  réactivation backoffice                                          
+            </a>           
+            <?php endif; ?>
+            <a class="btn btn-navbar btn-primary" href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'transaction', 'action' => 'member', 'id'=>$this->member['id']), null, true); ?>">
+               <i class="icon-star icon-white"></i>  voir ses transactions                                            
+            </a>
+            <a class="btn btn-navbar btn-info" href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'member', 'action' => 'card', 'id'=>$this->member['id']), null, true); ?>">
+               <i class="icon-download icon-white"></i>  apercu pièce d'idendité                                            
+            </a>
+            <a class="btn btn-navbar btn-inverse" href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'member', 'action' => 'resetpwd', 'id'=>$this->member['id']), null, true); ?>">
+               <i class="icon-refresh icon-white"></i>  reinitialiser mot de passe                                            
+            </a>
+            <a class="btn btn-navbar btn-warning" href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'member', 'action' => 'desactivate', 'id'=>$this->member['id']), null, true); ?>">
+               <i class="icon-lock icon-white"></i>  desactiver membre                                            
+            </a>
+            <a class="btn btn-navbar btn-danger" href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'member', 'action' => 'delete', 'id'=>$this->member['id']), null, true); ?>">
+               <i class="icon-remove-sign icon-white"></i>  supprimer ce membre                                            
+            </a>
+        </div>
+        <div class="box-content">
+            <div class="box span6">
+                <div class="box-content">
+                    <div> <strong> Née le : </strong> <?php echo Misc_Utils::formatDateToFr($this->member['date_naissance']).' à '.$this->member['lieu_naissance']; ?> </div>
+                    <div> <strong> Contact : </strong> <?php echo $this->member['mobile'].' - '.$this->member['telephone']?> <?php if($this->member['adresse']) echo ' / '.$this->member['adresse']?> </div>
+                    <div> <strong> Nationalite : </strong> <?php echo $this->member['nationalite']?> </div>
+                    <div> <strong> Pays : </strong> <?php echo $this->member['id_pays']?> </div>
+                    <div> <strong> Ville : </strong> <?php echo $this->member['ville']?> </div>
+                </div>
+            </div>
+            <div class="box span6">
+                <div class="box-content">
+                    <div> <strong> Compte : </strong> <?php echo $this->member['compte']; ?> </div>
+                    <div> <strong> Email : </strong> <?php echo $this->member['email']?> </div>
+                    <div> <strong> Enregistré le  : </strong> <?php echo Misc_Utils::formatDateToFr($this->member['enregistre_le'], TRUE)?> </div>
+                    <div> <?php if($this->member['connecte']) { ?> <span class="label label-important"> en ligne </span> <?php } else { ?>
+                        <span class="label label-inverse"> deconnecté </span> <?php } ?>
+                    </div>
+                    <div> <?php if($this->member['statut']) { ?> <span class="label label-info"> membre actif </span> <?php } else { ?>
+                        <span class="label label-inverse"> membre désactivé </span> <?php } ?>
+                    </div>
+
+                </div>                
+            </div>
+            
+        </div>
+    </div><!--/span-->
+</div><!--/row-->
+
+
+
+
+<!-- PARRAIN DIRECT  -->
+<?php if(isset($this->parrain)) : ?>
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header well" data-original-title>
+            <h2><i class="icon-user"></i>Parrain du Membre </h2>
+        </div>
+        <div class="box-content">
+            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+              <thead>
+                      <tr>
+                            <th>Parrain</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Statut</th>
+                      </tr>
+              </thead> 
+             
+              <tbody>
+                  <tr>
+                            <td> <?php echo $this->parrain['nom'].' '.$this->parrain['prenoms'];?> </td>
+                            <td class="center"> <?php echo $this->parrain['email'];?> </td>
+                            <td class="center"><?php echo $this->parrain['mobile'];?></td>
+                            <td class="center">
+                              <?php if($this->parrain['statut']==1) { ?> <span class="label label-success">Actif</span> <?php } ?>
+                              <?php if($this->parrain['statut']==0) { ?> <span class="label label-info">en attente</span> <?php } ?>
+                            </td>
+                            <td class="center">
+                                <a class="btn btn-success" href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'member', 'action' => 'detail', 'id'=>$this->parrain['id']), null, true); ?>">
+                                        <i class="icon-zoom-in icon-white"></i>  
+                                        accéder au détail                                            
+                                </a>
+                                <a class="btn btn-info" href="#">
+                                        <i class="icon-download icon-white"></i>  
+                                        voir piece idendité                                            
+                                </a>
+                             </td>
+                    </tr>
+                   
+              </tbody>
+            </table>
+          </div>
+      </div>
+</div>
+
+<?php endif; ?>
+
+
+<!-- LISTE DES FILLEULS  -->
+<?php if(isset($this->filleulN1)) : ?>
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header well" data-original-title>
+            <h2><i class="icon-user"></i> Filleuls Directs Niveau 1 </h2>
+        </div>
+        <?php if(count($this->filleulN1)) { ?>
+          <div class="box-content">
+            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+              <thead>
+                      <tr>
+                              <th>Membre</th>
+                              <th>Email</th>
+                              <th>Mobile</th>
+                              <th>Statut</th>
+                      </tr>
+              </thead> 
+             
+              <tbody>
+                   <?php foreach($this->filleulN1 as $m) : ?>
+                    <tr>
+                            <td> <?php echo $m['filleul'];?> </td>
+                            <td class="center"> <?php echo $m['email'];?> </td>
+                            <td class="center"><?php echo $m['mobile'];?></td>
+                            <td class="center">
+                              <?php if($m['confirmation']==1) { ?> <span class="label label-success">Actif</span> <?php } ?>
+                              <?php if($m['confirmation']==0) { ?> <span class="label label-info">en attente</span> <?php } ?>
+                            </td>
+                            <td class="center">
+                                    <a class="btn btn-success" href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'member', 'action' => 'detail', 'id'=>$m['id_adherent']), null, true); ?>">
+                                            <i class="icon-zoom-in icon-white"></i>  
+                                            accéder au détail                                            
+                                    </a>
+                                    <a class="btn btn-info" href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'member', 'action' => 'downloadidentitycard', 'f'=>$m['piece_idendite']), null, true); ?>">
+                                            <i class="icon-download icon-white"></i>  
+                                            voir piece idendité                                            
+                                    </a>
+                                    <!-- <a class="btn btn-info" href="#">
+                                            <i class="icon-edit icon-white"></i>  
+                                            modifier                                            
+                                    </a>
+                                    <a class="btn btn-danger" href="#">
+                                            <i class="icon-trash icon-white"></i> 
+                                            supprimer
+                                    </a> -->
+                            </td>
+                    </tr>
+                   <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        <?php } else { ?>
+            <div class="label label-warning"> Désolé aucun filleul enregistré niveau 1 </div>
+        <?php } ?>
+    </div>
+</div>
+<?php endif; ?>
+

@@ -1,0 +1,130 @@
+
+<div class="box-header well" data-original-title>
+   <div class="span2"><h3><i class="icon-"></i> Dashboard </h3> </div>
+   <div class="span10 pull-right"><form method='POST' > 
+        <div class="span3">
+            <select name='level' id='level' style="width:150px;">
+                <option value='1'> Actionnaire aspirant</option>
+                <option value='2'> Actionnaire classique</option>
+                <option value='3'> Actionnaire confirmé</option>
+                <option value='4'> Investisseur</option>
+            </select>
+        </div>
+        <div class="span2">
+            <select name="id_pays" id="id_pays" style="width:130px;">
+                <option value=''> - par pays - </option> 
+                <?php foreach($this->pays as $p) :  ?>
+                    <option value="<?php echo $p['id'];?>" <?php if($this->frm['id_pays']==$p['id']) echo 'selected';?>> <?php echo $p['pays'];?> </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="span2">
+            <input type="text" class="input-small datepicker" id="startDate" name="startDate" value="<?php echo $this->frm['startDate'];?>" >
+             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+        </div>
+         <div class="span2">
+          <input type="text" class="input-small datepicker" id="endDate" name="endDate"  value="<?php echo $this->frm['endDate'];?>">
+        </div>
+        <div class="span3">
+             <button class="btn btn-primary" type="submit">rechercher</button>
+        </div>
+        
+    </form> </div>
+</div>
+
+<br/>
+
+<?php if($this->frm['post']) : ?>
+<div class='row-fluid'>
+    <div>
+        <ul class="breadcrumb">
+        <?php if(!empty($this->frm['level'])) : ?> <li> Niveau <?php echo $this->frm['level']; ?><span class="divider">/</span> </li> <?php endif; ?>
+        <?php if(!empty($this->frm['startDate'])) : ?> 
+            <li>  <span class="small">Période du </span><?php echo Misc_Utils::formatDateToFr($this->frm['startDate']); ?>
+                 <?php if(!empty($this->frm['endDate'])) : ?> au <?php echo Misc_Utils::formatDateToFr($this->frm['endDate']); ?> <?php endif; ?>
+                   <span class="divider">/</span>
+            </li>
+        <?php endif; ?>        
+        <?php if(!empty($this->frm['pays'])) : ?> <li> <?php echo $this->frm['pays']['pays']; ?> <span class="divider">/</span> </li> <?php endif; ?>     
+        </ul>
+   </div>
+</div>
+<?php endif; ?>
+
+
+<br/>
+<div class="sortable row-fluid">
+    
+    
+    <a href="<?php echo $this->url(array('module'=>'backend', 'controller' => 'member', 'action' => 'list', 's'=>0), null, true); ?>" data-rel="tooltip" title="<?php echo $this->dashboard['members']['subscribing']['nbAdherent']; ?> membres en attente de validation" class="well span4 top-block" >
+        <span class="icon32 icon-color icon-users"></span>
+        <div>Membres enregistrés</div>
+        <div><?php echo $this->dashboard['members']['active']['nbAdherent']; ?> </div>
+        <span class="notification"><?php echo $this->dashboard['members']['subscribing']['nbAdherent']; ?></span>
+    </a>
+
+    <a data-rel="tooltip" title="" class="well span4 top-block" href="#">
+        <span class="icon32 icon-red icon-user"></span>
+        <div>Membres désactivés</div>
+        <div><?php echo $this->dashboard['members']['desactivate']['nbAdherent']; ?></div>
+        <!-- <span class="notification green">4</span> -->
+    </a>
+
+    <a data-rel="tooltip" title="" class="well span4 top-block" href="#">
+        <span class="icon32 icon-red icon-square-minus"></span>
+        <div>Membres supprimés</div>
+        <div><?php echo $this->dashboard['members']['delete']['nbAnnulation']; ?></div>
+        <!-- <span class="notification green">4</span> -->
+    </a>
+
+</div>
+
+<br/><br/>
+<div class="sortable row-fluid">
+    
+    <a data-rel="tooltip" title="<?php echo $this->dashboard['transactions']['don']['wait']['nbTransaction']; ?> dons en attente de paiement" class="well span4 top-block" href="#">
+        <span class="icon32 icon-color icon-star-on"></span>
+        <div>nombre de dons</div>
+        <div><?php echo $this->dashboard['transactions']['don']['active']['nbTransaction']; ?></div>
+        <span class="notification blue"><?php echo $this->dashboard['transactions']['don']['wait']['nbTransaction']; ?></span>
+    </a>
+ 
+    <a data-rel="tooltip" title="<?php echo $this->dashboard['transactions']['bonus']['wait']['nbTransaction']; ?> bonus en attente de paiement" class="well span4 top-block" href="#">
+        <span class="icon32 icon-color icon-star-off"></span>
+        <div>nombre de bonus</div>
+        <div><?php echo $this->dashboard['transactions']['bonus']['active']['nbTransaction']; ?></div>
+        <span class="notification green"><?php echo $this->dashboard['transactions']['bonus']['wait']['nbTransaction']; ?></span> 
+    </a>
+
+    <a data-rel="tooltip" title="" class="well span4 top-block" href="#">
+        <span class="icon32 icon-notice icon-color"></span>
+        <div>inscription annulé</div>
+        <div><?php echo $this->dashboard['subscribers']['abort']['nbAnnulation']; ?></div>
+        <span class="notification yellow"></span>
+    </a>
+
+</div>
+
+
+
+
+<!-- 
+<ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a href="#aspirant">Actionnaire aspirant (Niveau 1)</a></li>
+        <li><a href="#classique">Actionnaire classique (Niveau 2)</a></li>
+        <li><a href="#confirme">Actionnaire confirmé (Niveau 3)</a></li>
+        <li><a href="#investisseur">Investisseur (Niveau 4)</a></li>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+        <div class="tab-pane active" id="aspirant">dsdfsdf
+        </div>
+        <div class="tab-pane" id="classique">sdfsdfsd
+         </div>
+        <div class="tab-pane" id="confirme">sdfsdf
+        </div>
+        <div class="tab-pane" id="investisseur">sdfsdfsdf
+        </div>
+</div>
+-->

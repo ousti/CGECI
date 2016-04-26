@@ -1,0 +1,58 @@
+<div class="container-fluid">
+
+<h4 id='titleView'>  
+    <label class="label label-info">Formation <?php echo $this->training->EVT01;?>  </label> 
+</h4>
+
+<?php //Zend_Debug::dump($this->training); ?>
+
+<div class="nav">
+    <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true); ?>" class="btn btn-warning btn-mini"> 
+        <i class="icon icon-arrow-left icon-white"></i> retour à l'accueil
+    </a>
+    <a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'subscribe', 'idf' => $this->training->EVT01, 'l'=>$this->training->EVT06), null, true); ?>" class="btn btn-warning btn-mini"> 
+        <i class="icon icon-certificate icon-white"></i> m'inscrire
+    </a>
+</div>    
+    
+<div class="block-content collapse in">
+        <table class="table table-striped list">
+            <tbody>
+                <tr>
+                    <td>
+                        Nature <strong>  <?php echo $this->training->EVT06; ?> </strong>
+                    </td>
+                    <td>
+                        Lieu <strong>  <?php echo $this->training->EVT31; ?> </strong>
+                    </td>
+                    <td>
+                        Cout TTC <strong>  <?php echo $this->training->EVT24; ?> </strong>
+                    </td>
+                    <td>
+                        Debut le <strong>  <?php echo $this->training->EVT09; ?> </strong>
+                    </td>
+                    <td>
+                        Nb Jours  <strong>  <?php echo $this->training->EVT33; ?>,   <?php echo $this->training->EVT36; ?>H</strong>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        Programme <strong>  <?php echo $this->training->EVT27; ?> </strong>
+                    </td>
+                    <td>
+                        Objectifs <strong>  <?php echo $this->training->EVT29; ?> </strong>
+                    </td>
+                    <td>
+                        Prérequis <strong>  <?php echo $this->training->EVT38; ?> </strong>
+                    </td>
+                    <td>
+                       
+                    </td>
+                    <td>
+                       
+                    </td>
+                </tr>  
+                
+            </tbody>
+        </table>
+    </div>

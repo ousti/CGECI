@@ -1,0 +1,35 @@
+<article class="module width_full">
+    <header><h3 class="tabs_involved">clients désactivés (<?php echo count($this->customers); ?>)</h3> </header>
+        <table class="tablesorter" cellspacing="0"> 
+            <thead> 
+                <tr> 
+                    <th>nom</th> 
+                    <th>prénoms</th> 
+                    <th>société</th> 
+                    <th>téléphone</th> 
+                    <th>adresse</th> 
+                    <th>commercial</th> 
+                    <th>email</th> 
+                    <th>login</th> 
+                    <th>enregistré le</th> 
+                    
+                </tr> 
+            </thead> 
+            <tbody> 
+                <?php foreach($this->customers as $item) : ?>
+                <tr> 
+                    <td> <?php echo $item['firstname']; ?> </td> 
+                    <td> <?php echo $item['lastname']; ?> </td> 
+                    <td> <?php echo $item['company_name']; ?> </td> 
+                    <td> <?php echo $item['address']; ?> </td> 
+                    <td> <?php echo $item['phone_number']; ?> </td> 
+                    <td> <?php echo $item['commercial_fullname']; ?> </td> 
+                    <td> <?php echo $item['email']; ?> </td> 
+                    <td> <?php echo $item['login']; ?> </td> 
+                    <td> <?php echo $item['created_date']; ?> </td> 
+                    
+                </tr> 
+               <?php endforeach; ?>
+            </tbody> 
+        </table>
+</article>

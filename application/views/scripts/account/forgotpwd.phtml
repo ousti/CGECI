@@ -1,0 +1,52 @@
+<div class="row-fluid">
+
+
+    <div class="span2">
+        
+    </div>
+    <div class="span8">
+
+
+        <div class="block">
+            
+            <?php if(isset($this->errorMessage)) : ?>
+                <div class='alert alert-success'>
+                    <h3>Erreur Récupération mot de passe </h3>
+                    <?php echo $this->errorMessage; ?>
+                </div>            
+            <?php endif; ?>
+            
+            <div class="block-content collapse in">
+                <div class="span12">
+                    <form class="form-horizontal" id="frmForgetPassword" action="<?php echo $this->url(array('controller' => 'account', 'action' => 'forgotpwd'), null, true); ?>" method="POST">
+                        <fieldset>
+                            <legend> mot de passe oublié ? </legend>
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="">saisir votre email</label>
+                                <div class="controls">
+                                  <input type="text" name="email"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                                                                                                                     
+                          <div class="form-actions">
+                                <input type="submit" class="btn btn-warning" value="récuperer mon mot de passe" />
+                                <a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login'), null, true); ?>" class="btn">annuler</a>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- /block -->
+
+    </div>
+    
+    <div class="span2">
+        
+    </div>
+
+
+</div>

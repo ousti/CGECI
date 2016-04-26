@@ -1,0 +1,74 @@
+<div class="row-fluid">
+
+
+    <div class="span2">
+        <h4 id='titleView'> Détails adhérent</h4>
+    </div>
+    
+    <div class="span6">
+
+        <div class="block">
+
+            <h4> </h4>
+            <br/>
+            
+            <?php if (isset($this->errMessage)) : ?>
+                <div class='alert alert-error'>
+                    <h3>Création de compte </h3>
+                    <?php echo $this->errMessage; ?>
+                </div>            
+            <?php endif; ?>
+
+            <div class="block-content  in">
+                
+                <div class="span12">
+                    <div class="span4">&nbsp; &nbsp; Nom & Prénoms </div>
+                    <div class="span6"> <strong><?php echo $this->user['firstname'].' '.$this->user['lastname']; ?></strong></div>
+                </div>    
+                <div class="span12">
+                    <div class="span4">Raison sociale </div>
+                    <div class="span6"> <strong><?php echo $this->user['company_name']; ?></strong></div>
+                </div>    
+                <div class="span12">
+                    <div class="span4">Adresse</div>
+                    <div class="span6"> <strong><?php echo $this->user['address']; ?></strong></div>
+                </div>    
+                <div class="span12">
+                    <div class="span4">Contact téléphonique </div>
+                    <div class="span6"> <strong><?php echo $this->user['phone_number']; ?></strong></div>
+                </div>    
+               <div class="span12">
+                    <div class="span4">Email </div>
+                    <div class="span6"> <strong><?php echo $this->user['email']; ?></strong></div>
+                </div>    
+                <div class="span12">
+                    <div class="span4">Login</div>
+                    <div class="span6"> <strong><?php echo $this->user['login']; ?></strong></div>
+                </div> 
+                
+                </div>    
+         
+            </div>
+        </div>
+        <!-- /block -->
+
+    <div class="span4">
+        <form action="<?php echo $this->url(array('module'=> 'backend', 'controller' => 'subscriber', 'action' => 'validate', 'sid' => $this->user['id'], 'done' => 1), null, true); ?>" method="POST">
+            <div class="block-content  in">
+                <div class="span12">
+                   
+                </div>
+                <div class="span12">
+                    <em>inscris le <?php echo Utils::formatDateToFr($this->user['created_date'], TRUE); ?></strong></em>
+                </div>
+                <div class="span12">
+                    <input type="text" value="" placeholder="saisir identifiant Eudonet" name="id_company_eudonet" required="required" />
+                </div>
+                <div class="span12">
+                    <input type="submit" name="submit" value="confirmer adhésion" class='btn btn-success'> 
+                   
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

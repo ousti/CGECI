@@ -1,0 +1,19 @@
+<?php if(isset($this->fm)) : ?>
+    <div class='alert alert-success'>
+        <h3>Opération effectuée avec succès</h3>
+        <?php echo $this->fm; ?>
+    </div>            
+<?php endif; ?>
+
+<div class="span4">
+    <?php echo $this->partial("index/_training_list.phtml", array("formations" => $this->formations)); ?>
+</div>
+
+
+<div class="span4">
+    <?php echo $this->partial("index/_event_list.phtml", array("events" => $this->events)); ?>
+</div>
+
+<div class="span4">
+    <?php echo $this->partial("index/_room.phtml", array("salles" => $this->salles)); ?>
+</div>

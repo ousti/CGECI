@@ -1,0 +1,8 @@
+.pagination {
+  display: block;
+  width: 90%;
+}
+
+.pagination li a {
+    color:#FF6501
+}

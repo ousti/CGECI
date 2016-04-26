@@ -1,0 +1,47 @@
+
+<h4 id='titleView'>  
+        Salles 
+        <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'reservation-room'), null, true); ?>" class="btn btn-warning btn-mini"> 
+            <i class="icon icon-flag icon-white"></i> réserver
+        </a>
+                        
+</h4>
+<?php $k = 0; 
+      foreach ($this->salles as $item) : ?> 
+     
+    <div class="block-content collapse in">
+        <table class="table table-striped list">
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>  <?php echo $item['nom']; ?> </strong>
+                        - <?php echo $item['description']; ?> 
+                    </td>
+                </tr>
+                <tr>
+                     <td align="left">
+                       <?php echo $item['montant']; ?>  
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        
+                        
+                    </td>
+                </tr>  
+                
+            </tbody>
+        </table>
+    </div>
+<?php $k++; ?>
+<?php endforeach; ?>
+
+
+
+
+
+
+
+
+

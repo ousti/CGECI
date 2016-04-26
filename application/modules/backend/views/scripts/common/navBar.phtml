@@ -1,0 +1,39 @@
+<div id="navBar"> 
+
+    <ul class="nav nav-tabs navbar">
+        
+         <li <?php if($this->controller=='subscriber' and $this->action=='list') echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('module'=> 'backend', 'controller' => 'subscriber', 'action' => 'list', 's' => 0), null, true); ?>">
+            <i class="icon icon-eye-open"></i> demandes en attente </a>
+        </li>
+        
+        <li <?php if(($this->controller=='subscriber' and $this->action=='list') ) echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('module'=> 'backend', 'controller' => 'subscriber', 'action' => 'list', 's' => 1), null, true); ?>">
+              <i class="icon icon-plus-sign"></i> adhérents </a>
+        </li> 
+        
+        <li <?php if(($this->controller=='training' and $this->action=='subscriber') ) echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('module'=> 'backend', 'controller' => 'training', 'action' => 'subscriber'), null, true); ?>">
+              <i class="icon icon-circle-arrow-down"></i> formations </a>
+        </li>
+        
+        <li <?php if(($this->controller=='event' and $this->action=='subscriber') ) echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('module'=> 'backend', 'controller' => 'event', 'action' => 'subscriber'), null, true); ?>">
+              <i class="icon icon-globe"></i> evenements </a>
+        </li>
+        
+         <li <?php if(($this->controller=='training-room')) echo 'class="active"';?>>
+            <a href="<?php echo $this->url(array('module'=> 'backend', 'controller' => 'training-room', 'action' => 'reservation'), null, true); ?>">
+              <i class="icon icon-globe"></i> demande de salle </a>
+        </li>
+        
+        <li>
+            <a href="<?php echo $this->url(array('module'=> 'backend', 'controller' => 'auth', 'action' => 'logout'), null, true); ?>">
+              <i class="icon icon-lock"></i> deconnexion </a>
+        </li>
+       
+         
+        
+    </ul>        
+
+</div>

@@ -1,0 +1,61 @@
+<ul class="nav">
+    <li <?php if($this->controller=='dashboard') echo 'class="active"';?>>
+        <a href="<?php echo $this->url(array('controller' => 'dashboard', 'action' => 'index'), null, true); ?>">Tableaux de bord</a>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Paramétrages <b class="caret"></b>
+
+        </a>
+        <ul class="dropdown-menu" id="menu1">
+            <li>
+                <a href="<?php echo $this->url(array('controller' => 'exercice', 'action' => 'add'), null, true); ?>">ouvrir un exercice </i></a>
+            </li>
+            <li class="divider"></li>
+                <li>
+                <a href="<?php echo $this->url(array('controller' => 'campagne', 'action' => 'list'), null, true); ?>">
+                <i class="icon-chevron-right"></i> campagnes </a>
+               </li>  
+               <li>
+                    <a href="<?php echo $this->url(array('controller' => 'catalogue-action', 'action' => 'list'), null, true); ?>">
+                    <i class="icon-chevron-right"></i> catalogue actions </a>
+              </li>
+              <li <?php if($this->controller=='priorite') echo 'class="active"';?>>
+                <a href="<?php echo $this->url(array('controller' => 'priorite', 'action' => 'list'), null, true); ?>">
+                <i class="icon-chevron-right"></i> types de priorité </a>
+            </li> 
+            <li <?php if($this->controller=='type-activite') echo 'class="active"';?>>
+                <a href="<?php echo $this->url(array('controller' => 'type-activite', 'action' => 'list'), null, true); ?>"><i class="icon-chevron-right"></i> types d'activité </a>
+            </li>
+            <li <?php if($this->controller=='element-budget') echo 'class="active"';?>>
+                <a href="<?php echo $this->url(array('controller' => 'element-budget', 'action' => 'list'), null, true); ?>">
+                    <i class="icon-chevron-right"></i> éléments de budget</a>
+            </li>
+            <li <?php if($this->controller=='produit') echo 'class="active"';?>>
+                <a href="<?php echo $this->url(array('controller' => 'produit', 'action' => 'list'), null, true); ?>">
+                    <i class="icon-chevron-right"></i> produits</a>
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown <?php if($this->controller=='user') echo 'class="active"';?>">
+        <a href="" role="button" class="dropdown-toggle" data-toggle="dropdown">
+            accès logiciel <i class="caret"></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a tabindex="-1" href="<?php echo $this->url(array('controller' => 'user', 'action' => 'list-admin'), null, true); ?>">
+                  listing administrateurs </a>
+            </li>
+            <!-- <li>
+                <a tabindex="-1" href="#">enregistrer administrateur </a>
+            </li> -->
+            <li class="divider"></li>
+            <li>
+                <a tabindex="-1" href="<?php echo $this->url(array('controller' => 'user', 'action' => 'list-porteur'), null, true); ?>">
+                    listing porteur d'actions </a>
+            </li>
+            <!-- <li>
+                <a tabindex="-1" href="#">enregistrer porteur d'action </a>
+            </li> -->
+        </ul>
+    </li>
+</ul>

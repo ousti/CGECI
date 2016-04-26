@@ -1,0 +1,97 @@
+<?php
+echo $this->doctype();
+/* $authInstance = Zend_Auth::getInstance();
+  $isUserLogin = $authInstance->hasIdentity(); */
+?>
+
+<html  class="no-js" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="fr-FR">
+<head>
+<meta charset="utf-8">
+<title>CGECI</title>
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<meta name="description" content="Description">
+<meta name="keywords" content="Keywords">
+
+<script type="text/javascript">
+    var baseUrl = "<?php echo $this->baseUrl(); ?>";
+</script>
+    
+<!-- Bootstrap -->
+<link href="<?php echo $this->baseUrl(); ?>/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="<?php echo $this->baseUrl(); ?>/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    
+<!--/.fluid-container-->
+
+<!-- <script src="<?php echo $this->baseUrl(); ?>/bootstrap/js/bootstrap.min.js"></script> -->
+
+<!-- JQuery & TimePicker -->
+<script src="<?php echo $this->baseUrl(); ?>/vendors/jquery-1.9.1.min.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/vendors/jquery-ui-1.10.3.min.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/vendors/jquery-validate.min.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/vendors/jquery.ui.timepicker.js"></script>
+<link href="<?php echo $this->baseUrl(); ?>/vendors/jquery-ui.min.css" rel="stylesheet" media="screen">
+<link href="<?php echo $this->baseUrl(); ?>/vendors/jquery.ui.timepicker.css" rel="stylesheet" media="screen">
+
+<script src="<?php echo $this->baseUrl(); ?>/assets/control.js"></script>
+<link href="<?php echo $this->baseUrl(); ?>/assets/styles.css" rel="stylesheet" media="screen">
+    
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!-- <script src="<?php echo $this->baseUrl(); ?>/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
+
+        <body>
+            
+            <div id="container">
+                
+                <div class="row-fluid">
+                    <!-- HEADER & NAV -->
+                    <span class="span12">
+                        <?php 
+                        if(isset($this->userLoggedIn)) 
+                            echo $this->partial('common/header.phtml', 
+                                                        array('userLoggedIn'=>$this->userLoggedIn,
+                                                            ));
+                        else
+                            echo $this->partial('common/header_simple.phtml');                            
+                        ?>              
+                    </span>
+                </div>
+                 <div class="row-fluid">
+                    <!-- HEADER & NAV -->
+                    <?php if(isset($this->userLoggedIn)) : ?>
+                    <span class="span12">
+                        <?php echo $this->partial('common/navBar.phtml', 
+                                                    array('controller'=>$this->controllerName, 
+                                                          'action'=>$this->actionName,
+                                                        ));
+                        ?>              
+                    </span>
+                    <?php endif; ?>
+                </div>
+                
+                <div class="row-fluid" id="content">
+                    <span class="span12">
+                    <!-- CONTENT -->
+                    <div class="row-fluid">
+                        <?php echo $this->layout()->content; ?>
+                    </div>
+                </div>
+                
+          
+
+            <hr>
+                <footer>
+                    <p>&copy; CGECI  </p>
+                </footer>
+
+             </div>
+
+
+
+        </body>
+
+
+
+        </html>

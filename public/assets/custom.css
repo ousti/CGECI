@@ -1,0 +1,65 @@
+table td {
+    font-size:80%;
+}
+
+#sidebar li.active, #sidebar li.active a {
+    background-color: #FF6501;
+    background-image: none;
+    color:#FFF;
+    
+}
+
+#sidebar li a {
+    color:#333;
+    font-size:90%;
+}
+
+tbody td a {
+    color:#000
+}
+
+table td.center { text-align: center; } 
+table td.right { text-align: right; }
+
+table td span.labelSubTotal { font-size:90%; color:#FFF; font-weight: bold;}
+table tr.subTotal { background-color: #FF6501; color:#FFF}
+
+ul.dropdown-menu li a:hover {
+    background-color: #FF6501
+}
+
+.control-group {
+    border-bottom : 0px solid #F0F0F0;
+    padding-bottom: 15px;
+}
+
+.control-label {
+    font-weight: bold;
+}
+
+h4.panel-title {
+  font-weight: normal;
+}
+
+h4.panel-title a {
+  font-weight: normal;
+  color: #FF6501;
+  font-size:70%;
+  text-transform: uppercase;
+}
+
+ul.nav li a {
+    font-size:90%;
+    color:#000
+}
+
+ul.nav li.active a {
+    font-size:90%;
+    color:#FF6501
+}
+
+.required-field {
+    color:#CCC;
+    font-size: 11px;
+}
+

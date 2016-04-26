@@ -1,0 +1,100 @@
+<div class="row-fluid">
+
+
+    <div class="span2">
+        
+    </div>
+    <div class="span8">
+
+
+        <div class="block">
+            
+            <?php if(isset($this->errorMessage)) : ?>
+                <div class='alert alert-error'>
+                    <h3>Erreur lors de l'enregistrement de la demande de réservation </h3>
+                    <?php echo $this->errorMessage; ?>
+                </div>            
+            <?php endif; ?>
+            
+            <div class="block-content collapse in">
+                <div class="span12">
+                    <form class="form-horizontal" id="" action="<?php echo $this->url(array('controller' => 'index', 'action' => 'reservation-room'), null, true); ?>" method="POST">
+                        <fieldset>
+                            <legend> CGECI :: Réservation de salles</legend>
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="">Nom & Prénoms</label>
+                                <div class="controls">
+                                  <input type="text" name="fullname"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                            </div> 
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="">Contact téléphonique</label>
+                                <div class="controls">
+                                  <input type="text" name="phone"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                            </div> 
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="">Places souhaités</label>
+                                <div class="controls">
+                                  <input type="text" name="capacite"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                            </div> 
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="">Date</label>
+                                <div class="controls">
+                                  <input type="text" name="date"  class="input-large" placeholder="25 Decembre 2015" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">Nombre de jours</label>
+                                <div class="controls">
+                                  <input type="text" name="jour"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">Nombre d'heures</label>
+                                <div class="controls">
+                                  <input type="text" name="heure"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">Services particuliers ?</label>
+                                <div class="controls">
+                                    <textarea name="services" rows="10" cols="50"> </textarea> 
+                                </div>
+                           </div> 
+                           
+                                                                                                                                      
+                          <div class="form-actions">
+                                <input type="submit" class="btn btn-warning" value="transmettre demande" />
+                                <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'reservation-room'), null, true); ?>" class="btn">annuler</a>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- /block -->
+
+    </div>
+    
+    <div class="span2">
+        
+    </div>
+
+
+</div>

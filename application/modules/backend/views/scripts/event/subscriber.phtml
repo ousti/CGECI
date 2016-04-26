@@ -1,0 +1,43 @@
+<h4 id='titleView'> 
+    <label class="label label-inverse"><?php echo count($this->inscris);?> inscription evenement </label>
+</h4>
+
+<?php if(isset($this->fm)) : ?>
+    <div class='alert alert-success'> <?php echo $this->fm; ?></div>
+<?php endif; ?>
+    
+<?php foreach ($this->inscris as $k => $item) : ?>
+    <div class="block-content collapse in">
+        <table class="table table-striped list">
+            <thead> 
+                <tr> 
+                    <th><label class="label label-info"><?php echo $item['evenement']; ?></label></th> 
+                    <th>Adhérent</th> 
+                    <th>Société</th> 
+                    <th>Telephone</th> 
+                    <th>Email</th> 
+                    <th>Inscris le </th> 
+                    <th></th>
+                </tr> 
+            </thead> 
+            <tbody> 
+                <?php foreach($item['inscris'] as $item) : ?>
+                <tr> 
+                    <td> </td> 
+                    <td> <?php echo $item['firstname'].' '.$item['lastname']; ?> </td> 
+                    <td> <?php echo $item['company_name']; ?> </td> 
+                    <td> <?php echo $item['phone_number']; ?> </td> 
+                    <td> <?php echo $item['email']; ?> </td> 
+                    <td> <?php echo Utils::formatDateToFr($item['inscris_le'],TRUE); ?> </td> 
+                    <td>  
+                    </td>
+                </tr> 
+               <?php endforeach; ?>
+            </tbody> 
+        </table>
+    </div>
+ <?php endforeach; ?>
+
+
+
+

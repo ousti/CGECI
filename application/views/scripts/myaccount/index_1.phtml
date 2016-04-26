@@ -1,0 +1,106 @@
+<div class="row-fluid">
+
+
+    <div class="span12">
+
+        <div class="block span6">
+
+            <h4> mes informations personnelles </h4>
+            <br/>
+           
+            
+            <div class="block-content in">
+                
+                <div class="span12">
+                    <div class="span4">&nbsp; &nbsp; client </div>
+                    <div class="span6"> <strong><?php echo $this->info['firstname'].' '.$this->info['lastname']; ?></strong></div>
+                </div>    
+                <div class="span12">
+                    <div class="span4">raison sociale </div>
+                    <div class="span6"> <strong><?php echo $this->info['company_name']; ?></strong></div>
+                </div>    
+                <div class="span12">
+                    <div class="span4">adresse</div>
+                    <div class="span6"> <strong><?php echo $this->info['address']; ?></strong></div>
+                </div>    
+                <div class="span12">
+                    <div class="span4">contact téléphonique </div>
+                    <div class="span6"> <strong><?php echo $this->info['phone_number']; ?></strong></div>
+                </div>    
+               <div class="span12">
+                    <div class="span4">email </div>
+                    <div class="span6"> <strong><?php echo $this->info['email']; ?></strong></div>
+                </div>    
+                <div class="span12">
+                    <div class="span4">login</div>
+                    <div class="span6"> <strong><?php echo $this->info['login']; ?></strong></div>
+                </div> 
+                
+                <br/><br/><br/><br/><br/><br/><br/>
+                 <div class="span12">
+                     <div class="span6"> <em>inscription effectué le 
+                         <?php echo Utils::formatDateToFr($this->info['created_date']); ?></strong>
+                         </em>
+                     </div>
+                </div>    
+         
+            </div>
+        </div>
+            
+            
+        <div class="span6">
+            
+            <div class="block-content in">
+                <h4> infos eudonet </h4>
+                <br/>
+                <?php if (isset($this->fm)) : ?>
+                    <div class='alert alert-success'>
+                        <h3>Action effectuée </h3>
+                        <?php echo $this->fm; ?>
+                    </div>            
+                <?php endif; ?>
+
+                
+                <div class="span12">
+                    <div class="span4">Société </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM01; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Adresse </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM02; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Pays </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM03; ?></strong></div>
+                </div> 
+                 <div class="span12">
+                    <div class="span4">Localisation </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM04; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Téléphone 1 </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM05; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Téléphone 2 </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM06; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <div class="span4">Ville </div>
+                    <div class="span6"> <strong><?php echo $this->infoCompany->PM10; ?></strong></div>
+                </div> 
+                <div class="span12">
+                    <a href="<?php echo $this->url(array('controller' => 'myaccount', 'action' => 'edit'), null, true); ?>" class="btn btn-primary"> mettre à jour</a>
+                </div> 
+            </div>
+            <?php // Zend_Debug::dump($this->infoCompany);  ?>
+        
+        </div>
+        <!-- /block -->
+
+</div>
+
+   
+
+
+

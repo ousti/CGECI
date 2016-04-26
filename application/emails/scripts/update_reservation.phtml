@@ -1,0 +1,12 @@
+
+            <h4>Une demande de réservation a été modifiée</h4>            
+            <p>
+                Client : <strong><?php echo $this->infoMail['customer']; ?></strong>   <br/>
+                Date réservation : <strong><?php echo Misc_Utils::formatDateToFr($this->infoMail['reservation_date']); ?></strong>   <br/>
+                Heure début : <strong><?php echo $this->infoMail['start_time']; ?></strong>   <br/>
+                Heure fin : <strong><?php echo $this->infoMail['end_time']; ?></strong>   <br/>
+            </p>            
+            <p> 
+                <em>veuillez vous connecter au BackOffice pour plus de détails</em>
+            </p>
+            

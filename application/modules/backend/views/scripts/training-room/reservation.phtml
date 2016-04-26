@@ -1,0 +1,51 @@
+<h4 id='titleView'> 
+    <label class="label label-inverse"><?php echo count($this->reservations);?> reservations enregistrées </label>
+</h4>
+
+<?php if(isset($this->fm)) : ?>
+    <div class='alert alert-success'> <?php echo $this->fm; ?></div>
+<?php endif; ?>
+    
+
+    <div class="block-content collapse in">
+        <table class="table table-striped table-bordered list">
+            <thead> 
+                <tr> 
+                    <th>Adhérent</th> 
+                    <th>téléphone</th> 
+                    <th>Place</th> 
+                    <th>Date</th> 
+                    <th>Nb Jour</th>
+                    <th>Nb heure</th>
+                    <th>Service</th>
+                    <th>Effectué le</th>
+                </tr> 
+            </thead> 
+            <tbody> 
+                <?php foreach($this->reservations as $item) : ?>
+                <tr> 
+                    <td> 
+                        <?php 
+                            if($item['id_user'] <>0 ) 
+                                echo $item['firstname'].' '.$item['lastname'];
+                            else
+                               echo $item['reservant']; 
+                        ?> 
+                    </td> 
+                    <td> <?php if($item['id_user'] <>0 ) echo $item['phone_number']; else echo $item['phone'] ?> </td> 
+                    <td> <?php echo $item['place']; ?> </td> 
+                    <td> <?php echo $item['date_debut']; ?> </td> 
+                    <td> <?php echo ($item['jour']); ?> </td> 
+                    <td> <?php echo $item['heure']; ?> </td> 
+                    <td> <?php echo $item['service']; ?> </td> 
+                    <td> <?php echo Utils::formatDateToFr($item['created_at'],TRUE); ?> </td> 
+                </tr> 
+               <?php endforeach; ?>
+            </tbody> 
+        </table>
+    </div>
+
+
+
+
+

@@ -1,0 +1,54 @@
+
+<div class="pagination block-content">
+    
+        
+    <ul>
+        <!-- First page link current-->
+        <?php if (isset($this->previous)): ?>
+        <li><a href="<?php echo $this->url(array('page' => $this->first)); ?>">Premier</a> </li>
+        <?php else: ?>
+            <li class="active"><a href="#">Premier</a> </li>
+        <?php endif; ?>
+    
+                
+        <!-- Previous page link -->    
+        <?php if (isset($this->previous)): ?>
+               <li><a href="<?php echo $this->url(array('page' => $this->previous)); ?>">Précédent</a> </li>
+        <?php else: ?>
+            <li class="active"><a href="#">Précédent</a> </li>
+        <?php endif; ?>
+            
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+        <li><a href="<?php echo $this->url(array('page' => $page)); ?>"><?php echo $page; ?></a> </li>
+            <?php else: ?>
+                 <li class="active"> <a href="#"><?php echo $page; ?> </a></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+                
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+              <li><a href="<?php echo $this->url(array('page' => $this->next)); ?>">Suivant</a> </li>
+        <?php else: ?>
+              <li class="active"> <a href="#">Suivant</a> </li>
+        <?php endif; ?>
+            
+        <!-- Last page link -->
+        <?php if (isset($this->next)): ?>
+        <li><a href="<?php echo $this->url(array('page' => $this->last)); ?>">Dernier</a> </li>
+        <?php else: ?>
+         <li class="active"> <a href="#">Dernier</a> </li>
+        <?php endif; ?>
+        &nbsp;
+    </ul>
+    <ul class="pull-right">
+        <li class="active ">
+            <a href="#">Page <?php echo $this->current; ?> sur <?php echo $this->last; ?> 
+            </a>
+        </li>
+    <!-- </div> -->
+    
+    </ul>
+ </div>
+

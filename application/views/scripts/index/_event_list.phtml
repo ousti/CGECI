@@ -1,0 +1,47 @@
+<h4 id='titleView'>  Evènements </h4>
+<?php $k = 0; 
+      foreach ($this->events as $item) : ?> 
+      <?php $f = $item->FieldsValue->FieldValues; ?>
+    <div class="block-content collapse in">
+        <table class="table table-striped list">
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>  <?php echo $f[1]->Value; ?> </strong>
+                        - <?php echo $f[5]->Value; ?> 
+                    </td>
+                </tr>
+                <tr>
+                     <td align="left">
+                       <?php echo $f[3]->Value; ?> - <?php echo $f[4]->Value; ?> 
+                        , <?php echo $f[6]->Value; ?> FCFA 
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'event-detail', 'ide' => $f[0]->Value, 'l'=>$f[1]->Value), null, true); ?>" class="btn btn-warning btn-mini"> 
+                            <i class="icon icon-certificate icon-white"></i> plus de détails
+                        </a>
+                        <a href="<?php echo $this->url(array('controller' => 'event', 'action' => 'subscribe', 'ide' => $f[0]->Value, 'l'=>$f[1]->Value), null, true); ?>" class="btn btn-warning btn-mini"> 
+                            <i class="icon icon-certificate icon-white"></i> m'inscrire
+                        </a>
+                        
+                        
+                    </td>
+                </tr>  
+                
+            </tbody>
+        </table>
+    </div>
+<?php $k++; ?>
+<?php endforeach; ?>
+
+
+
+
+
+
+
+
+

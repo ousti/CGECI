@@ -1,0 +1,117 @@
+<div class="row-fluid">
+
+
+    <div class="span2">
+        
+    </div>
+    <div class="span8">
+
+
+        <div class="block">
+            
+            <?php if(isset($this->errorMessage)) : ?>
+                <div class='alert alert-success'>
+                    <h3>Erreur de création de compte </h3>
+                    <?php echo $this->errorMessage; ?>
+                </div>            
+            <?php endif; ?>
+            
+            <div class="block-content collapse in">
+                <div class="span12">
+                    <form class="form-horizontal" id="frmNewCustomer" action="<?php echo $this->url(array('controller' => 'account', 'action' => 'create'), null, true); ?>" method="POST">
+                        <fieldset>
+                            <legend> CGECI :: ouverture de compte </legend>
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="">nom</label>
+                                <div class="controls">
+                                  <input type="text" name="firstname"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="">prénoms</label>
+                                <div class="controls">
+                                  <input type="text" name="lastname"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">raison sociale</label>
+                                <div class="controls">
+                                  <input type="text" name="company_name"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">adresse</label>
+                                <div class="controls">
+                                  <input type="text" name="address"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">contact téléphonique</label>
+                                <div class="controls">
+                                  <input type="text" name="phones"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">email</label>
+                                <div class="controls">
+                                  <input type="text" name="email"  class="input-large" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <legend> </legend>
+                           <div class="control-group">
+                                <label class="control-label" for=""> votre login </label>
+                                <div class="controls">
+                                  <input type="text" name="login"  class="input-medium" placeholder="" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+
+                           <div class="control-group">
+                                <label class="control-label" for="">votre mot de passe</label>
+                                <div class="controls">
+                                  <input name="pwd" id="pwd"  class="input-medium" placeholder="" type="password" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                           
+                           <div class="control-group">
+                                <label class="control-label" for="">confirmer mot de passe</label>
+                                <div class="controls">
+                                  <input name="confirmpwd"  class="input-medium" placeholder="" type="password" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                                                                                                                                           
+                          <div class="form-actions">
+                                <input type="submit" class="btn btn-warning" value="créer mon compte" />
+                                <a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login'), null, true); ?>" class="btn">annuler</a>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- /block -->
+
+    </div>
+    
+    <div class="span2">
+        
+    </div>
+
+
+</div>

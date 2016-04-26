@@ -1,0 +1,46 @@
+<div class="container-fluid">
+<h4 id='titleView'>  
+    <label class="label label-info">Evenement <?php echo $this->event->EVT01;?>  </label> 
+</h4>
+
+<?php //Zend_Debug::dump($this->event); ?>
+
+<div class="nav">
+    <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true); ?>" class="btn btn-warning btn-mini"> 
+        <i class="icon icon-arrow-left icon-white"></i> retour à l'accueil
+    </a>
+    <a href="<?php echo $this->url(array('controller' => 'event', 'action' => 'subscribe', 'idf' => $this->event->EVTID, 'l'=>$this->event->EVT01), null, true); ?>" class="btn btn-warning btn-mini"> 
+        <i class="icon icon-certificate icon-white"></i> m'inscrire
+    </a>
+</div>    
+    
+<div class="block-content collapse in">
+        <table class="table table-striped list">
+            <tbody>
+                <tr>
+                    <td>
+                        Type <strong>  <?php echo $this->event->EVT02; ?> </strong>
+                    </td>
+                    <td>
+                        Lieu <strong>  <?php echo $this->event->EVT07; ?> </strong>
+                    </td>
+                    <td>
+                        Cout TTC <strong>  <?php echo $this->event->EVT08; ?> </strong>
+                    </td>
+                    <td>
+                       Du <strong>  <?php echo $this->event->EVT06; ?> au <?php echo $this->event->EVT09; ?> </strong>
+                    </td>
+                    
+                </tr>  
+                <tr>
+                    <td>
+                        Programme <strong>  <?php echo $this->event->EVT94; ?> </strong>
+                    </td>
+                    <td>
+                    
+                    </td>
+                </tr>  
+                
+            </tbody>
+        </table>
+    </div>

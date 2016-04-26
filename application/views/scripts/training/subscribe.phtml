@@ -1,0 +1,52 @@
+<div class="row-fluid">
+
+
+    <div class="span2">
+        
+    </div>
+    <div class="span8">
+
+
+        <div class="block">
+            
+            <?php if(isset($this->errMessage)) : ?>
+                <div class='alert alert-error'>
+                    <h3>Erreur d'inscription </h3>
+                    <?php echo($this->errMessage); ?>
+                </div>            
+            <?php endif; ?>
+            
+            <div class="block-content collapse in">
+                <div class="span12">
+                    <form class="form-horizontal" id="" action="<?php echo $this->url(array('controller' => 'training', 'action' => 'subscribe', 'idf' => $this->formParams['idf'], 'l' => $this->formParams['l']), null, true); ?>" method="POST">
+                        <fieldset>
+                            <legend> CGECI :: Inscription formation </legend>
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="">Formation</label>
+                                <div class="controls">
+                                    <input type="text" name="PM01"  class="input-large" value="<?php echo $this->formParams['l']; ?>" disabled="disabled" />
+                                  <span class="required-field">* requis</span>
+                                </div>
+                           </div> 
+                                                                                                                    
+                          <div class="form-actions">
+                                <input type="submit" class="btn btn-warning" value="confirmer inscription" />
+                                <a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'list'), null, true); ?>" class="btn">annuler</a>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- /block -->
+
+    </div>
+    
+    <div class="span2">
+        
+    </div>
+
+
+</div>
